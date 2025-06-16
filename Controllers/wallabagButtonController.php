@@ -194,6 +194,7 @@ class FreshExtension_wallabagButton_Controller extends Minz_ActionController
     curl_setopt($curl, CURLOPT_POST, true);
 
     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($post_data, JSON_UNESCAPED_UNICODE));
+    curl_setopt($curl, CURLOPT_CAINFO, "/etc/ssl/certs/root-certificate.pem");
 
     $response = curl_exec($curl);
     $header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
